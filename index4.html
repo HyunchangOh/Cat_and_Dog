@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characteristics Classification Game</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+    <h1> Part 2: Teach Tom how to Distinguish Cats and Dogs</h1>
+    <h2>Drag and Drop the characteristics to the better fitting animal.</h2>    
+    <!-- Top center: Text Balloons -->
+    <div class="game-container">
+            <div class="text-balloon draggable" draggable="true" id="balloon1">Tongue Out</div>
+            <div class="text-balloon draggable" draggable="true" id="balloon2">Round Pupil</div>
+            <div class="text-balloon draggable" draggable="true" id="balloon3">Whiskers</div>
+            <div class="text-balloon draggable" draggable="true" id="balloon4">Slit-Shaped Pupil</div>
+        </div>
+    <div class="container">
+        <!-- Left section: Area 1 - Dog Characteristic -->
+        <div class="dropzone" id="dog-characteristic">Dog Characteristic</div>
+        
+        <!-- Right section: Area 2 - Cat Characteristic -->
+        <div class="dropzone" id="cat-characteristic">Cat Characteristic</div>
+    </div>
+
+
+
+    <!-- Message Box -->
+    <div class="message" id="message">
+        <p id="message-text"></p>
+        <button id="message-button" class="hidden">Next</button>
+    </div>
+
+    <script src="scripts4.js"></script>
+</body>
+</html>

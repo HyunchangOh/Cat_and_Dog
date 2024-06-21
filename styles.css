@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 1500px;
+    margin-bottom: 20px;
+}
+.dropzone {
+    width: 700px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+img {
+    width: 200px;
+    height: 200px;
+    cursor: grab;
+}
+.hidden {
+    display: none;
+}
+.message {
+    text-align: center;
+}
+.message button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>        
+    <h1>Part 1: Do you know cats and dogs?</h1>
+    <h2>Drag and Drop to Correct Places</h2>
+    <div class="container">
+        <img src="cat.jpg" id="cat" draggable="true">
+        <img src="dog.jpg" id="dog" draggable="true">
+    </div>
+    <div class="container">
+        <div class="dropzone" id="cat-dropzone">Cat</div>
+        <div class="dropzone" id="dog-dropzone">Dog</div>
+    </div>
+    <div class="message hidden" id="message">
+        <p id="message-text"></p>
+        <button id="message-button"></button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
