@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Game</title>
+    <link rel="stylesheet" href="sort.css">
+</head>
+<body>
+    <div id="tom">
+        <img src="tom.jpg" alt="Tom">
+        <div class="speech-bubble">What is this animal?</div>
+    </div>
+    <div id="picture-frame">
+        <div class="instruction" id="up">
+            <div class="arrow-up"></div>
+            <p>Swipe Up for Dogs</p>
+        </div>
+        <div id="picture-queue">
+            <img class="sortable-item" src="item1.jpg" alt="Item 1" draggable="true">
+            <img class="sortable-item" src="item2.jpg" alt="Item 2" draggable="true">
+            <img class="sortable-item" src="item3.jpg" alt="Item 3" draggable="true">
+            <img class="sortable-item" src="item4.jpg" alt="Item 4" draggable="true">
+            <img class="sortable-item" src="item5.jpg" alt="Item 5" draggable="true">
+        </div>
+        <div class="instruction" id="down">
+            <div class="arrow-down"></div>
+            <p>Swipe Down for Cats</p>
+        </div>
+    </div>
+    <div id="congratulation-message"></div>
+    <script src="sort.js"></script>
+</body>
+</html>

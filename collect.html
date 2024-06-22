@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Game</title>
+    <link rel="stylesheet" href="collect.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Part 3. AI can learn from Data, not only from Rules</h1>
+        <p>There are lots of data on the Internet that Tom can learn from, but collecting them is not easy! Collect the photos by clicking and dragging them to Tom.</p>
+    </div>
+    <div id="main-container">
+        <div id="game-container">
+            <div id="tom" class="target"></div>
+            <div class="draggable" draggable="true" id="item1"></div>
+            <div class="draggable" draggable="true" id="item2"></div>
+            <div class="draggable" draggable="true" id="item3"></div>
+            <div class="draggable" draggable="true" id="item4"></div>
+            <div class="draggable" draggable="true" id="item5"></div>
+           
+            <div id="next-container">
+                <div id="congratulation-message"></div>
+                <button id="next-button">Next</button>
+            </div>
+            
+        </div>
+        <div id="collected-data-container">
+            <h2>Collected Data</h2>
+            <div id="collected-data"></div>
+            
+        </div>
+    </div>
+    <script src="collect.js"></script>
+</body>
+</html>

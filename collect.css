@@ -1,0 +1,148 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    width: 80vw;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+
+#main-container {
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    margin-top: 20px;
+}
+
+#game-container {
+    position: relative;
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-right: 20px;
+}
+
+.target {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    background: url('tom.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.draggable {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#item1 {
+    background-image: url('item1.jpg');
+}
+
+#item2 {
+    background-image: url('item2.jpg');
+}
+
+#item3 {
+    background-image: url('item3.jpg');
+}
+
+#collected-data-container {
+    width: 150px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+#collected-data-container h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+#collected-data {
+    margin-top: 10px;
+}
+
+.collected-item {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 5px auto;
+}
+
+#congratulation-message {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: green;
+}
+
+#item4 {
+    background-image: url('item4.jpg');
+}
+
+#item5 {
+    background-image: url('item5.jpg');
+}
+
+#next-container{
+    position:absolute;
+    bottom:10px;
+    text-align:right;
+    width:100%;
+}
+
+#next-button {
+    position:absolute;
+    bottom:15px;
+    right:10px;
+    margin-right:10px;
+    display:none;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

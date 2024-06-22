@@ -59,5 +59,5 @@ function resetGame() {
     document.querySelector('.container').prepend(catImg);
     document.querySelector('.container').appendChild(dogImg);
     messageDiv.classList.add('hidden');
-    window.location.href = 'index9_0.html';
+    window.location.href = 'index9.html';
 }
