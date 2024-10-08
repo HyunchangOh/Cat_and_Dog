@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Game</title>
+    <link rel="stylesheet" href="sort.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <h1>3. Testen und Bewerten</h1>
+        <p>
+            Also, lass uns testen, wie gut unsere Maschine die neuen Hunde und Katzen klassifizieren kann! Beachte, dass es sich um neue Bilder handeln muss, sonst wäre es für die Maschine zu einfach.
+        </p>
+    </div>
+
+    <div id="tom">
+        <img src="tom.jpg" alt="Tom">
+        <div class="speech-bubble" id="tomBubble">Ich denke, das ist...</div>
+        <div id="next">
+            
+Alle Daten wurden beschriftet.
+            <button id="next-button">Weiter</button>
+        </div>
+    </div>
+
+    <div id="text-box" style="display: none;">
+        <p>We labelled all the data.</p>
+        <button id="redirect-button">Weiter</button>
+    </div>
+    
+    <div id="picture-frame">
+        <div class="instruction" id="up">
+            <div class="arrow-up"></div>
+            <p>Hunde</p>
+        </div>
+        <div id="picture-queue">
+            <img class="sortable-item" src="placeholder.jpg" alt="Item 5" draggable="true">
+            <img class="sortable-item" src="newitem1.jpg" alt="Item 1" draggable="true">
+            <img class="sortable-item" src="newitem2.png" alt="Item 2" draggable="true">
+            <img class="sortable-item" src="newitem3.JPG" alt="Item 3" draggable="true">
+            <img class="sortable-item" src="newitem4.jpg" alt="Item 4" draggable="true">
+            <img class="sortable-item" src="newitem5.jpg" alt="Item 5" draggable="true">
+
+        </div>
+        <div class="instruction" id="down">
+            <div class="arrow-down"></div>
+            <p>Katzen</p>
+        </div>
+    </div>
+    <div id="congratulation-message"></div>
+    <script src="evaluate.js"></script>
+</body>
+</html>

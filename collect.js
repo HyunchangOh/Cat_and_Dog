@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkWin() {
         if (document.querySelectorAll('.draggable').length === 0) {
-            message.textContent = 'Congratulations! You did it!';
+            message.textContent = 'Glückwunsch! Du hast es geschafft!';
             nextbutton.style.display="block";
         }
     }
 
     nextbutton.addEventListener('click',(e)=>{
-        window.location.href="sort.html";
+        window.location.href="label.html";
     });
 
     function moveRandomly(element) {

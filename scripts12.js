@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const message = document.getElementById('message');
 
     checkButton.addEventListener('click', function() {
-        let correctAnswer = 'A'; // Change this to the correct answer (A, B, C, or D)
+        let correctAnswer = 'B'; // Change this to the correct answer (A, B, C, or D)
         let selectedAnswer = null;
 
         // Find the selected answer
@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if an answer is selected
         if (!selectedAnswer) {
-            showMessage("Please select an answer.", "red");
+            showMessage("Bitte wähle eine Antwort aus.", "red");
             return;
         }
 
         // Check if the selected answer is correct
         if (selectedAnswer === correctAnswer) {
-            showMessage("Congrats! Moving on to Next in 2 Seconds...", "green");
+            showMessage("Herzlichen Glückwunsch! Weiter geht's mit dem Nächsten in 2 Sekunden...", "green");
             setTimeout(function() {
                 window.location.href = "index13.html"; // Redirect after 2 seconds
             }, 2000);
         } else {
-            showMessage("Rule-based learning means following a set of instructions or rules.. like a recipe!", "red");
+            showMessage("Eine gut gestaltete Prüfung sollte weder zu schwer noch zu leicht sein und sollte die Schüler testen, ob sie das Konzept wirklich verstanden haben und es auf ähnliche Probleme anwenden können.", "red");
             // Deactivate the selected wrong answer
             choices.forEach(choice => {
                 const radio = choice.querySelector('input[type="radio"]');

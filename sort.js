@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to handle correct swipe
     function handleCorrectSwipe(item, direction) {
         const translateY = direction === 'up' ? '-200px' : '200px';
-        bubble.innerHTML = "Thank you for the label!";
+        bubble.innerHTML = "Danke für das Label!";
         setTimeout(() => {
             if(currentIndex>-1){
-                bubble.innerHTML = "What is this animal?";
+                bubble.innerHTML = "Was ist das für ein Tier?";
             }
         }, 2000);
         item.style.transform = `translateY(${translateY})`; // Move off-screen
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 checkWin();
             }
             else{
-                bubble.innerHTML = "All Photos have been labelled correctly!";
-                pictureFrame.innerHTML = "<button id='yay'>Next</button>"
+                bubble.innerHTML = "Alle Fotos wurden korrekt beschriftet!";
+                pictureFrame.innerHTML = "<button id='yay'>Weiter</button>"
                 const yayButton = document.getElementById('yay');
 
                 if (yayButton) {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     yayButton.style.transition = 'background-color 0.3s ease';
             
                     yayButton.onclick = () => {
-                        window.location.href = 'index10.html';
+                        window.location.href = 'sort_after.html';
                     };
                 }
 
@@ -130,6 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Redirect button click event
     redirectButton.addEventListener('click', () => {
-        window.location.href = 'index10.html';
+        window.location.href = 'evaluate.html';
     });
 });

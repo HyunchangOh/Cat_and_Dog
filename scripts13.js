@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if an answer is selected
         if (!selectedAnswer) {
-            showMessage("Please select an answer.", "red");
+            showMessage("Bitte wähle eine Antwort aus.", "red");
             return;
         }
 
         // Check if the selected answer is correct
         if (selectedAnswer === correctAnswer) {
-            showMessage("Congrats! Moving on to Next in 2 Seconds...", "green");
+            showMessage("Herzlichen Glückwunsch! Weiter geht's mit dem Nächsten in 2 Sekunden...", "green");
             setTimeout(function() {
                 window.location.href = "final.html"; // Redirect after 2 seconds
             }, 2000);
         } else {
-            showMessage("For data-driven learning, you need many examples to learn from, usually taken from previous experiences.", "red");
+            showMessage("Wenn dein Machine-Learning-Modell in der Praxis eingesetzt werden soll, welche Art von Daten würde es sehen?", "red");
             // Deactivate the selected wrong answer
             choices.forEach(choice => {
                 const radio = choice.querySelector('input[type="radio"]');

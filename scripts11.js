@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if an answer is selected
         if (!selectedAnswer) {
-            showMessage("Please select an answer.", "red");
+            showMessage("Bitte wähle eine Antwort aus.", "red");
             return;
         }
 
         // Check if the selected answer is correct
         if (selectedAnswer === correctAnswer) {
-            showMessage("Congrats! Moving on to Next in 2 Seconds...", "green");
+            showMessage("Herzlichen Glückwunsch! Weiter geht's mit dem Nächsten in 2 Sekunden...", "green");
             setTimeout(function() {
                 window.location.href = "index12.html"; // Redirect after 2 seconds
             }, 2000);
         } else {
-            showMessage("Although our previous example learned from data, it doesn't mean that it cannot learn from rules too.", "red");
+            showMessage("Obwohl Machine-Learning-Modelle lernen können, dass Katzen und Hunde in gewisser Weise unterschiedlich sind, können sie die Wörter „Katze“ oder „Hund“ nicht lernen, wenn sie nicht beschriftet sind.", "red");
             // Deactivate the selected wrong answer
             choices.forEach(choice => {
                 const radio = choice.querySelector('input[type="radio"]');
