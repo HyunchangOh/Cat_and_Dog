@@ -14,28 +14,28 @@ body {
     padding: 20px;
     margin:40px;
     background-color: #fff;
-    width: 40%;
+    width: 60%;
     box-sizing: border-box;
     border: 1px solid #ccc; /* Adjusted to fit with the general style */
 }
 
 #header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 2vw;
 }
 
 #header p {
     margin: 10px 0 0;
-    font-size: 16px;
+    font-size: 1.5vw;
 }
 
 #tom {
     position: absolute;
     top: 50%;
-    right: 20vw;
+    right: 2vw;
     transform: translateY(-50%);
-    width: 200px;
-    height: 200px;
+    width: 10vw;
+    height: 20vh;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
@@ -56,8 +56,8 @@ body {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    font-size: 24px;
-    width: 150px;
+    font-size: 2vw;
+    width: 10vw;
     text-align: center;
     bottom: 100%;
     left: 50%;
@@ -97,7 +97,7 @@ body {
     z-index: 2;
     width: auto;
     height: 150%; /* Adjust height as needed */
-    max-width: 300px; /* Adjust max-width as needed */
+    max-width: 20vw; /* Adjust max-width as needed */
     margin-right: 10px; /* Add spacing between items */
     transition: transform 0.3s ease;
     cursor: grab;
@@ -137,6 +137,7 @@ body {
     align-items: center;
     position: absolute;
     width: 100%;
+    left:0;
 }
 
 .arrow-up, .arrow-down {
@@ -156,20 +157,21 @@ body {
 
 .instruction p {
     margin: 5px 0;
+    left:0;
     font-size: 14px;
     color: #333;
 }
 
 #up {
     top: 10%; /* Adjust top position as needed */
-    left:20%;
+    left:30%;
 }
 
 #down {
     /* position:relative; */
     z-index:1;
     bottom: 10%; /* Adjust bottom position as needed */
-    left:20%;
+    left:30%;
 }
 
 #next {
