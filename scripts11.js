@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (selectedAnswer === correctAnswer) {
             showMessage("Herzlichen Glückwunsch! Weiter geht's mit dem Nächsten in 2 Sekunden...", "green");
             setTimeout(function() {
-                window.location.href = "index12.html"; // Redirect after 2 seconds
+                window.location.href = "index13.html"; // Redirect after 2 seconds
             }, 2000);
         } else {
             showMessage("Obwohl Machine-Learning-Modelle lernen können, dass Katzen und Hunde in gewisser Weise unterschiedlich sind, können sie die Wörter „Katze“ oder „Hund“ nicht lernen, wenn sie nicht beschriftet sind.", "red");

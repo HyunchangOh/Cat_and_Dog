@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         yayButton.style.transition = 'background-color 0.3s ease';
                 
                         yayButton.onclick = () => {
-                            window.location.href = 'index10.html';
+                            window.location.href = 'index11.html';
                         };
                     }
                 }
