@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swipe Game</title>
     <link rel="stylesheet" href="sort.css">
+    <style>
+        .sortable-item {
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,11 +44,11 @@
                 Wische nach oben für Hunde!</p>
         </div>
         <div id="picture-queue">
-            <img class="sortable-item" src="item1.jpg" alt="Item 1" draggable="true">
-            <img class="sortable-item" src="item2.jpg" alt="Item 2" draggable="true">
-            <img class="sortable-item" src="item3.jpg" alt="Item 3" draggable="true">
-            <img class="sortable-item" src="item4.jpg" alt="Item 4" draggable="true">
-            <img class="sortable-item" src="item5.jpg" alt="Item 5" draggable="true">
+            <img class="sortable-item" src="item1.jpg" alt="Item 1">
+            <img class="sortable-item" src="item2.jpg" alt="Item 2">
+            <img class="sortable-item" src="item3.jpg" alt="Item 3">
+            <img class="sortable-item" src="item4.jpg" alt="Item 4">
+            <img class="sortable-item" src="item5.jpg" alt="Item 5">
         </div>
         <div class="instruction" id="down">
             <div class="arrow-down"></div>

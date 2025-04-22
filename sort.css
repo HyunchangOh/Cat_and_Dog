@@ -1,9 +1,10 @@
 body {
     display: flex;
     flex-direction: column; /* Allow flex items to stack vertically */
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start */
     height: 100vh;
     margin: 0;
+    padding-left: 15%; /* Increased padding to shift everything right */
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     text-align: center; /* Center text for body elements */
@@ -12,7 +13,7 @@ body {
 #header {
     text-align: center;
     padding: 20px;
-    margin:40px;
+    margin: 40px 40px 40px 0; /* Reduced left margin */
     background-color: #fff;
     width: 60%;
     box-sizing: border-box;
@@ -31,22 +32,25 @@ body {
 
 #tom {
     position: absolute;
-    top: 50%;
-    right: 2vw;
-    transform: translateY(-50%);
+    top: calc(40px + 35vh); /* Moved down from 32vh to 35vh */
+    right: 8vw; /* Increased from 4vw to give more space */
     width: 10vw;
-    height: 20vh;
+    min-width: 100px;
+    max-width: 150px;
+    height: 150px;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    max-height: calc(100vh - 80px);
+    overflow: visible;
 }
 
 #tom img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain image aspect ratio */
+    object-fit: contain;
 }
 
 .speech-bubble {
@@ -56,25 +60,30 @@ body {
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    font-size: 2vw;
-    width: 10vw;
+    font-size: 1.2em; /* Increased from 16px to 1.2em */
+    width: 200px;
     text-align: center;
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 10px;
+    z-index: 1000;
 }
 
 #picture-frame {
-    width: 70%;
-    height: 50vh; /* Adjusted height */
-    max-width: 600px;
+    width: 65%; /* Slightly reduced from 70% */
+    min-width: 45vw; /* Slightly reduced from 50vw */
+    height: 50vh;
     border: 1px solid #ccc;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Picture frame behind Tom */
-    display: flex; /* Enable flexbox */
-    justify-content: flex-end; /* Align items to the right */
-    align-items: center; /* Center vertically */
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    margin-right: 5%; /* Add right margin to balance the layout */
+    background-color: #fff;
 }
 
 #picture-container {
