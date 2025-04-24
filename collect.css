@@ -57,13 +57,11 @@ body {
 
 .draggable {
     position: absolute;
-    width: 10vh;
-    height: 10vh;
-    background-size: cover;
-    background-position: center;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    cursor: move;
+    object-fit: cover;
 }
 
 .draggable:hover {
@@ -72,14 +70,32 @@ body {
 
 #item1 {
     background-image: url('item1.jpg');
+    top: 20%;
+    left: 20%;
 }
 
 #item2 {
     background-image: url('item2.jpg');
+    top: 40%;
+    left: 15%;
 }
 
 #item3 {
     background-image: url('item3.jpg');
+    top: 60%;
+    left: 25%;
+}
+
+#item4 {
+    background-image: url('item4.jpg');
+    top: 30%;
+    left: 30%;
+}
+
+#item5 {
+    background-image: url('item5.jpg');
+    top: 50%;
+    left: 35%;
 }
 
 #collected-data-container {
@@ -113,12 +129,11 @@ body {
 }
 
 .collected-item {
-    width: 80%;
-    aspect-ratio: 1;
-    background-size: cover;
-    background-position: center;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin: 5px auto;
+    object-fit: cover;
+    margin: 5px;
 }
 
 #congratulation-message {
@@ -128,14 +143,6 @@ body {
     text-align: center;
     font-size: 2vw;
     color: green;
-}
-
-#item4 {
-    background-image: url('item4.jpg');
-}
-
-#item5 {
-    background-image: url('item5.jpg');
 }
 
 #next-container{

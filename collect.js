@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.getElementById('game-container');
     let draggedItem = null;
     let isDragging = false;
-    let touchOffset = { x: 1000, y: 1000 };
+    let touchOffset = { x: 100, y: 100 };
     let intervals = new Map();
 
     // Touch events handlers
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.classList.contains('draggable')) {
             isDragging = true;
             const rect = draggedItem.getBoundingClientRect();
-            touchOffset.x = touch.clientX - rect.left + 100;
-            touchOffset.y = touch.clientY - rect.top + 150;
+            touchOffset.x = touch.clientX - rect.left;
+            touchOffset.y = touch.clientY - rect.top;
 
             if (intervals.has(draggedItem)) {
                 clearInterval(intervals.get(draggedItem));

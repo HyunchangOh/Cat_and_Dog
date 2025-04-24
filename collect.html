@@ -6,8 +6,11 @@
     <title>Drag and Drop Game</title>
     <link rel="stylesheet" href="collect.css">
     <style>
+        /* Prevent scrolling/zooming on iOS while dragging */
         .draggable {
             touch-action: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
     </style>
 </head>
@@ -18,25 +21,147 @@
     </div>
     <div id="main-container">
         <div id="game-container">
-            <div id="tom" class="target"></div>
-            <div class="draggable" draggable="true" id="item1"></div>
-            <div class="draggable" draggable="true" id="item2"></div>
-            <div class="draggable" draggable="true" id="item3"></div>
-            <div class="draggable" draggable="true" id="item4"></div>
-            <div class="draggable" draggable="true" id="item5"></div>
+            <div id="tom" class="target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <img src="item1.jpg" class="draggable" draggable="true" id="item1" ondragstart="drag(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+            <img src="item2.jpg" class="draggable" draggable="true" id="item2" ondragstart="drag(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+            <img src="item3.jpg" class="draggable" draggable="true" id="item3" ondragstart="drag(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+            <img src="item4.jpg" class="draggable" draggable="true" id="item4" ondragstart="drag(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+            <img src="item5.jpg" class="draggable" draggable="true" id="item5" ondragstart="drag(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
            
             <div id="next-container">
                 <div id="congratulation-message"></div>
                 <button id="next-button">Weiter</button>
             </div>
-            
         </div>
         <div id="collected-data-container">
             <h2>Gesammelte Daten</h2>
             <div id="collected-data"></div>
-            
         </div>
     </div>
-    <script src="collect.js"></script>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            collectItem(document.getElementById(data));
+        }
+
+        function collectItem(item) {
+            if (!item || item.style.display === 'none') return;
+            
+            var collectedData = document.getElementById("collected-data");
+            var clone = item.cloneNode(true);
+            clone.classList.remove("draggable");
+            clone.classList.add("collected-item");
+            clone.removeAttribute("draggable");
+            clone.removeAttribute("ondragstart");
+            collectedData.appendChild(clone);
+            
+            item.style.display = "none";
+            
+            checkCompletion();
+        }
+
+        function checkCompletion() {
+            var items = document.querySelectorAll(".draggable");
+            var allCollected = true;
+            items.forEach(item => {
+                if (item.style.display !== "none") {
+                    allCollected = false;
+                }
+            });
+            
+            if (allCollected) {
+                document.getElementById("congratulation-message").textContent = "Gut gemacht! Alle Daten wurden gesammelt!";
+                document.getElementById("next-button").style.display = "block";
+            }
+        }
+
+        function moveRandomly() {
+            const container = document.getElementById('game-container');
+            const items = document.querySelectorAll('.draggable');
+            const containerRect = container.getBoundingClientRect();
+            const padding = 50;
+
+            items.forEach(item => {
+                if (item.style.display !== 'none' && !item.isBeingDragged) {
+                    const x = Math.random() * (containerRect.width - item.offsetWidth - padding * 2) + padding;
+                    const y = Math.random() * (containerRect.height - item.offsetHeight - padding * 2) + padding;
+                    
+                    item.style.transition = 'all 1s ease-in-out';
+                    item.style.left = x + 'px';
+                    item.style.top = y + 'px';
+                }
+            });
+        }
+
+        let activeItem = null;
+        let initialX = 0;
+        let initialY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        function touchStart(event) {
+            if (activeItem) return;
+            
+            event.preventDefault();
+            activeItem = event.target;
+            activeItem.isBeingDragged = true;
+            
+            const touch = event.touches[0];
+            initialX = touch.clientX - activeItem.offsetLeft;
+            initialY = touch.clientY - activeItem.offsetTop;
+            
+            activeItem.style.transition = 'none';
+        }
+
+        function touchMove(event) {
+            if (!activeItem) return;
+            
+            event.preventDefault();
+            const touch = event.touches[0];
+            
+            currentX = touch.clientX - initialX;
+            currentY = touch.clientY - initialY;
+            
+            activeItem.style.left = currentX + 'px';
+            activeItem.style.top = currentY + 'px';
+        }
+
+        function touchEnd(event) {
+            if (!activeItem) return;
+            
+            event.preventDefault();
+            
+            const tom = document.getElementById('tom');
+            const tomRect = tom.getBoundingClientRect();
+            const itemRect = activeItem.getBoundingClientRect();
+            
+            if (!(itemRect.right < tomRect.left || 
+                itemRect.left > tomRect.right || 
+                itemRect.bottom < tomRect.top || 
+                itemRect.top > tomRect.bottom)) {
+                collectItem(activeItem);
+            }
+            
+            activeItem.isBeingDragged = false;
+            activeItem.style.transition = 'all 1s ease-in-out';
+            activeItem = null;
+        }
+
+        moveRandomly();
+        setInterval(moveRandomly, 1000);
+
+        document.getElementById('game-container').addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
 </body>
 </html>
