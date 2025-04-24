@@ -84,6 +84,11 @@
             }
         }
 
+        // Add next button click handler
+        document.getElementById("next-button").addEventListener("click", function() {
+            window.location.href = "sort.html";
+        });
+
         function moveRandomly() {
             const container = document.getElementById('game-container');
             const items = document.querySelectorAll('.draggable');
