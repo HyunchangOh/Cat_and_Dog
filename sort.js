@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let startY = null;
     let startX = null;
     let isDragging = false;
+    const SWIPE_THRESHOLD = 50;
+    const touchOptions = { passive: false };
+
+    function getPoint(e) {
+        if (e.touches && e.touches.length > 0) {
+            return e.touches[0];
+        }
+        if (e.changedTouches && e.changedTouches.length > 0) {
+            return e.changedTouches[0];
+        }
+        if (typeof e.clientX === 'number' && typeof e.clientY === 'number') {
+            return e;
+        }
+        return null;
+    }
 
     // Function to initialize interaction behavior for the current item
     function initInteractionBehavior() {
@@ -24,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.removeEventListener('touchstart', handleStart);
             item.removeEventListener('touchmove', handleMove);
             item.removeEventListener('touchend', handleEnd);
+            item.removeEventListener('touchcancel', handleCancel);
         });
 
         // Enable interaction for the current item
@@ -36,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentSortableItem.addEventListener('mouseup', handleEnd);
             currentSortableItem.addEventListener('mouseleave', handleEnd);
             // Touch events
-            currentSortableItem.addEventListener('touchstart', handleStart);
-            currentSortableItem.addEventListener('touchmove', handleMove);
-            currentSortableItem.addEventListener('touchend', handleEnd);
+            currentSortableItem.addEventListener('touchstart', handleStart, touchOptions);
+            currentSortableItem.addEventListener('touchmove', handleMove, touchOptions);
+            currentSortableItem.addEventListener('touchend', handleEnd, touchOptions);
+            currentSortableItem.addEventListener('touchcancel', handleCancel, touchOptions);
         }
     }
 
@@ -51,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         isDragging = true;
         
-        // Get starting position
-        if (e.type === 'touchstart') {
-            startY = e.touches[0].clientY;
-            startX = e.touches[0].clientX;
-        } else {
-            startY = e.clientY;
-            startX = e.clientX;
+        const point = getPoint(e);
+        if (!point) {
+            isDragging = false;
+            return;
         }
+
+        startY = point.clientY;
+        startX = point.clientX;
         
         // Reset transform
         this.style.transition = 'none';
@@ -72,14 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentSortableItem = sortableItems[currentIndex];
         if (!currentSortableItem) return;
 
-        let currentY, currentX;
-        if (e.type === 'touchmove') {
-            currentY = e.touches[0].clientY;
-            currentX = e.touches[0].clientX;
-        } else {
-            currentY = e.clientY;
-            currentX = e.clientX;
-        }
+        const point = getPoint(e);
+        if (!point) return;
+        const currentY = point.clientY;
+        const currentX = point.clientX;
 
         const diffY = currentY - startY;
         const diffX = currentX - startX;
@@ -95,20 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentSortableItem = sortableItems[currentIndex];
         if (!currentSortableItem) return;
 
-        let endY;
-        if (e.type === 'touchend') {
-            endY = e.changedTouches[0].clientY;
-        } else {
-            endY = e.clientY;
-        }
+        const point = getPoint(e);
+        const endY = point ? point.clientY : startY;
 
         const diffY = endY - startY;
         
         currentSortableItem.style.transition = 'transform 0.3s ease-out';
 
-        if (currentIndex >= 2 && diffY < -50) { // Swipe Up for items 3, 4, 5
+        if (currentIndex >= 2 && diffY < -SWIPE_THRESHOLD) { // Swipe Up for items 3, 4, 5
             handleCorrectSwipe(currentSortableItem, 'up');
-        } else if (currentIndex < 2 && diffY > 50) { // Swipe Down for items 0, 1, 2
+        } else if (currentIndex < 2 && diffY > SWIPE_THRESHOLD) { // Swipe Down for items 0, 1, 2
             handleCorrectSwipe(currentSortableItem, 'down');
         } else {
             handleWrongSwipe(currentSortableItem);
@@ -160,7 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to handle wrong swipe
     function handleWrongSwipe(item) {
-        item.style.transform = 'translateX(0)';
+        item.style.transform = 'translateY(0)';
+    }
+
+    function handleCancel() {
+        if (!isDragging) return;
+        isDragging = false;
+        const currentSortableItem = sortableItems[currentIndex];
+        if (!currentSortableItem) return;
+        currentSortableItem.style.transition = 'transform 0.2s ease-out';
+        currentSortableItem.style.transform = 'translateY(0)';
+        startY = null;
+        startX = null;
     }
 
     const next = document.getElementById('next');
